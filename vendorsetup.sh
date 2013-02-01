@@ -1,5 +1,6 @@
 #
 # Copyright 2012 The Android Open Source Project
+# Copyright (C) 2013 The SaberMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,4 +15,5 @@
 # limitations under the License.
 #
 
-add_lunch_combo full_mako-userdebug
+add_lunch_combo sm_mako-userdebug
+add_lunch_combo sm_mako_user
