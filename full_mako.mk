@@ -17,19 +17,18 @@
 # Sample: This is where we'd set a backup provider if we had one
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 
-# Get the long list of APNs
-PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
-
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Inherit from hardware-specific part of the product configuration
+$(call inherit-product, device/lge/mako/device.mk)
+$(call inherit-product, vendor/lge/mako/device-vendor.mk)
 
 PRODUCT_NAME := full_mako
 PRODUCT_DEVICE := mako
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := Full JellyBean on Mako
 PRODUCT_MANUFACTURER := LGE
-PRODUCT_RESTRICT_VENDOR_FILES := true
 
-# Inherit from hardware-specific part of the product configuration
-$(call inherit-product, device/lge/mako/device.mk)
-$(call inherit-product-if-exists, vendor/lge/mako/device-vendor.mk)
+# Don't restrict vendors
+PRODUCT_RESTRICT_VENDOR_FILES := false

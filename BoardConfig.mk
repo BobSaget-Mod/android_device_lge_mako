@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
@@ -93,3 +91,13 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/lge/mako
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
 -include vendor/lge/mako/BoardConfigVendor.mk
+
+KERNEL_HAS_GETTIMEOFDAY_HELPER := true
+
+KRAIT_OPTIMIZATION := true
+TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
+TARGET_USE_KRAIT_PLD_SET := true
+TARGET_KRAIT_BIONIC_PLDOFFS := 10
+TARGET_KRAIT_BIONIC_PLDTHRESH := 10
+TARGET_KRAIT_BIONIC_BBTHRESH := 64
+TARGET_KRAIT_BIONIC_PLDSIZE := 64
