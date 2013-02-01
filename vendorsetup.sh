@@ -16,4 +16,4 @@
 #
 
 add_lunch_combo sm_mako-userdebug
-add_lunch_combo sm_mako_user
+add_lunch_combo sm_mako-user

@@ -24,18 +24,20 @@ PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# Inherit from hardware-specific part of the product configuration
+$(call inherit-product, device/lge/mako/device.mk)
+$(call inherit-product-if-exists, vendor/lge/mako/device-vendor.mk)
+
 PRODUCT_NAME := sm_mako
 PRODUCT_DEVICE := mako
 PRODUCT_BRAND := Google
 PRODUCT_MODEL := Nexus 4
 PRODUCT_MANUFACTURER := LGE
 
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=occam BUILD_FINGERPRINT="google/occam/mako:4.2.1/JOP40D/533553:user/release-keys" PRIVATE_BUILD_DESC="occam-user 4.2.1 JOP40D 533553 release-keys"
+
 # Don't restrict vendors
 PRODUCT_RESTRICT_VENDOR_FILES := false
-
-# Inherit from hardware-specific part of the product configuration
-$(call inherit-product, device/lge/mako/device.mk)
-$(call inherit-product-if-exists, vendor/lge/mako/device-vendor.mk)
 
 # Set SM_BUILDTYPE
 

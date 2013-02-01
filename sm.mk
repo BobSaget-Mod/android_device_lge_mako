@@ -67,7 +67,7 @@ PRODUCT_COPY_FILES += \
 
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
-    device/lge/mako/etc/mkshrc:system/etc/mkshrc
+    device/lge/mako/system/etc/mkshrc:system/etc/mkshrc
 
 # Allow fixing of permissions
 PRODUCT_COPY_FILES += \

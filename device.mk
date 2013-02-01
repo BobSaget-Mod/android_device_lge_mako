@@ -259,4 +259,4 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # Call sm
-$(call inherit-product, device/asus/grouper/sm.mk)
+$(call inherit-product, device/lge/mako/sm.mk)
