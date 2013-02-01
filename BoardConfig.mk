@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CFLAGS += $(call-cc-option,-mfpu=neon-vpfv4) $(call-cc-option,-mfloat-abi=softfp)
+TARGET_GLOBAL_CPPFLAGS += $(call-cc-option,-mfpu=neon-vpfv4) $(call-cc-option,-mfloat-abi=softfp)
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
@@ -91,3 +91,24 @@ TARGET_NO_RPC := true
 TARGET_RELEASETOOLS_EXTENSIONS := device/lge/mako
 
 -include vendor/lge/mako/BoardConfigVendor.mk
+
+TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
+
+ifneq ($(USE_MORE_OPT_FLAGS),yes)
+# Extra CFLAGS
+TARGET_EXTRA_CFLAGS :=	$(call-cc-option,-fsanitize=address) \
+			$(call-cc-option,-fsanitize=thread) \
+			$(call-cc-option,-mcpu=cortex-a15) \
+			$(call-cc-option,-mtune=cortex-a15) \
+			-fgcse-after-reload \
+			-finline-functions \
+			-fipa-cp-clone \
+			-fpredictive-commoning \
+			-fvect-cost-model
+endif
+
+# GCC Linaro
+ifeq ($(USE_LINARO_ARMEABI),true)
+  ARM_EABI_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/android-linaro-toolchain-4.8/bin
+endif
+
