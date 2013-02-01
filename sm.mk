@@ -52,7 +52,7 @@ PRODUCT_PACKAGES += \
     tune2fs \
     VideoEditor \
     vim \
-    Wallpaperz
+    Wallpaperz-xhdpi
 
 $(call inherit-product, vendor/goog/goog-vendor.mk)
 $(call inherit-product, vendor/goomanager/goomanager-vendor.mk)
