@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-TARGET_GLOBAL_CFLAGS += $(call-cc-option,-mfpu=neon-vpfv4) $(call-cc-option,-mfloat-abi=softfp)
-TARGET_GLOBAL_CPPFLAGS += $(call-cc-option,-mfpu=neon-vpfv4) $(call-cc-option,-mfloat-abi=softfp)
+TARGET_GLOBAL_CFLAGS += $(call-cc-option,-mfpu=neon) $(call-cc-option,-mfloat-abi=softfp)
+TARGET_GLOBAL_CPPFLAGS += $(call-cc-option,-mfpu=neon) $(call-cc-option,-mfloat-abi=softfp)
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
@@ -105,8 +105,8 @@ ifneq ($(USE_MORE_OPT_FLAGS),yes)
 # Extra CFLAGS
 TARGET_EXTRA_CFLAGS :=	$(call-cc-option,-fsanitize=address) \
 			$(call-cc-option,-fsanitize=thread) \
-			$(call-cc-option,-mcpu=cortex-a15) \
-			$(call-cc-option,-mtune=cortex-a15) \
+			$(call-cc-option,-mcpu=cortex-a9) \
+			$(call-cc-option,-mtune=cortex-a9) \
 			-fgcse-after-reload \
 			-finline-functions \
 			-fipa-cp-clone \
