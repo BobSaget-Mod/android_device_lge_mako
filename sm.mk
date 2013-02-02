@@ -49,6 +49,7 @@ PRODUCT_PACKAGES += \
     Term \
     ThemeChooser \
     ThemeManager \
+    Torch \
     tune2fs \
     VideoEditor \
     vim \
