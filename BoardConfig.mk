@@ -90,6 +90,8 @@ TARGET_NO_RPC := true
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/lge/mako
 
+BOARD_CHARGER_ENABLE_SUSPEND := true
+
 -include vendor/lge/mako/BoardConfigVendor.mk
 
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
