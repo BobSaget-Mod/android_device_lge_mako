@@ -19,6 +19,7 @@ PRODUCT_PACKAGES += \
     bash \
     Basic \
     Camera \
+    CellBroadcastReceiver \
     CMFileManager \
     CMFileManagerThemes \
     com.tmobile.themes \
@@ -78,20 +79,19 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
        device/lge/mako/system/etc/permissions/com.tmobile.software.themes.xml:system/etc/permissions/com.tmobile.software.themes.xml
 
-# Inherit some GSM stuff
-
-# Extra Required SaberMod packages
-PRODUCT_PACKAGES += \
-    Mms \
-    Stk \
-    VoiceDialer
-
 # System dump APN config
 PRODUCT_COPY_FILES += \
     device/lge/mako/system/etc/apns-conf.xml:system/etc/apns-conf.xml
 
-# Extra gsm properties
+# Inherit some GSM stuff
+
+PRODUCT_PACKAGES += \
+    Stk \
+    VoiceDialer
+
 PRODUCT_PROPERTY_OVERRIDES := \
     keyguard.no_require_sim=true \
     ro.com.android.dataroaming=false
 
+$(call inherit-product, build/target/product/full_base.mk)
+$(call inherit-product, build/target/product/telephony.mk)
