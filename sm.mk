@@ -80,22 +80,5 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
        device/lge/mako/system/etc/permissions/com.tmobile.software.themes.xml:system/etc/permissions/com.tmobile.software.themes.xml
 
-# System dump APN config
-PRODUCT_COPY_FILES += \
-    device/lge/mako/system/etc/apns-conf.xml:system/etc/apns-conf.xml
-
-# Inherit some GSM stuff
-
-PRODUCT_PACKAGES += \
-    Stk \
-    VoiceDialer
-
-PRODUCT_PROPERTY_OVERRIDES := \
-    keyguard.no_require_sim=true \
-    ro.com.android.dataroaming=false
-
-$(call inherit-product, build/target/product/full_base.mk)
-$(call inherit-product, build/target/product/telephony.mk)
-
 # video files and extra camera effects
 $(call inherit-product, frameworks/base/data/videos/VideoPackage2.mk)

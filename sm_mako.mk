@@ -18,15 +18,26 @@
 # Sample: This is where we'd set a backup provider if we had one
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 
-# Get the long list of APNs
-PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+# Inherit AOSP specific parts
+$(call inherit-product, build/target/product/full_base.mk)
+$(call inherit-product, build/target/product/telephony.mk)
 
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+# Inherit some GSM stuff
+
+PRODUCT_PACKAGES += \
+    Stk \
+    VoiceDialer
+
+PRODUCT_PROPERTY_OVERRIDES := \
+    keyguard.no_require_sim=true \
+    ro.com.android.dataroaming=false
+
+PRODUCT_COPY_FILES += \
+    device/lge/mako/system/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/lge/mako/device.mk)
-$(call inherit-product-if-exists, vendor/lge/mako/device-vendor.mk)
+$(call inherit-product, vendor/lge/mako/mako-vendor.mk)
 
 PRODUCT_NAME := sm_mako
 PRODUCT_DEVICE := mako
@@ -71,4 +82,3 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.sm.version=$(SM_VERSION) \
   ro.modversion=$(SM_VERSION)
-
