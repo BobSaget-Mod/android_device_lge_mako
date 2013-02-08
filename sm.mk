@@ -96,3 +96,6 @@ PRODUCT_PROPERTY_OVERRIDES := \
 
 $(call inherit-product, build/target/product/full_base.mk)
 $(call inherit-product, build/target/product/telephony.mk)
+
+# video files and extra camera effects
+$(call inherit-product, frameworks/base/data/videos/VideoPackage2.mk)
