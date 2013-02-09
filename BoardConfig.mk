@@ -94,6 +94,7 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 
 -include vendor/lge/mako/BoardConfigVendor.mk
 
+KRAIT_OPTIMIZATION := true
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
 TARGET_USE_KRAIT_PLD_SET := true
 TARGET_KRAIT_BIONIC_PLDOFFS := 10
@@ -136,4 +137,3 @@ ARCH_ARM_NEON_SUPPORTS_UNALIGNED_ACCESS := true
 
 # Alignment divider size for NEON unaligned access in memcpy. 
 BIONIC_MEMCPY_ALIGNMENT_DIVIDER := 224
-

@@ -82,3 +82,7 @@ PRODUCT_COPY_FILES += \
 
 # video files and extra camera effects
 $(call inherit-product, frameworks/base/data/videos/VideoPackage2.mk)
+
+# Boot animation
+PRODUCT_COPY_FILES += \
+    device/asus/grouper/system/media/bootanimation.zip:system/media/bootanimation.zip \
