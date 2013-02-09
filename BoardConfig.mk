@@ -143,3 +143,6 @@ TARGET_BOOTANIMATION_PRELOAD := true
 
 # Bootanimation texture cache
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
+
+# Bionic settings for QCOM devices
+IS_ARMV7A_QCOM := true
