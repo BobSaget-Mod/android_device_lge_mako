@@ -137,3 +137,9 @@ ARCH_ARM_NEON_SUPPORTS_UNALIGNED_ACCESS := true
 
 # Alignment divider size for NEON unaligned access in memcpy. 
 BIONIC_MEMCPY_ALIGNMENT_DIVIDER := 224
+
+# Preload bootanimation zip into memory
+TARGET_BOOTANIMATION_PRELOAD := true
+
+# Bootanimation texture cache
+TARGET_BOOTANIMATION_TEXTURE_CACHE := true
