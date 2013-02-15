@@ -59,6 +59,7 @@ PRODUCT_PACKAGES += \
 
 $(call inherit-product, vendor/goog/goog-vendor.mk)
 $(call inherit-product, vendor/goomanager/goomanager-vendor.mk)
+$(call inherit-product, vendor/RM/rm-vendor.mk)
 
 # sysinit support
 PRODUCT_COPY_FILES += \
