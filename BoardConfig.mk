@@ -141,3 +141,6 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 
 # Bionic settings for QCOM devices
 IS_ARMV7A_QCOM := true
+
+# Disable c++11 mode
+DEBUG_NO_STDCXX11 := yes
