@@ -141,3 +141,6 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 
 # Bionic settings for QCOM devices
 IS_ARMV7A_QCOM := true
+
+# GCC 4.7 SaberMod Toolchain
+USE_SABERMOD_ANDROIDEABI_48 := true
