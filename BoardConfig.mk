@@ -116,7 +116,7 @@ TARGET_EXTRA_CFLAGS :=	$(call-cc-option,-fsanitize=address) \
 # Extra CPPFLAGS
 TARGET_EXTRA_CPPFLAGS :=	$(call-cpp-option,-fsanitize=address) \
 				$(call-cpp-option,-fsanitize=thread) \
-				$(call-cc-option,-march=armv7-a) \
+				$(call-cpp-option,-march=armv7-a) \
 				$(call-cpp-option,-mcpu=cortex-a9) \
 				$(call-cpp-option,-mtune=cortex-a9)
 endif
