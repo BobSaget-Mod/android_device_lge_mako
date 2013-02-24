@@ -26,7 +26,7 @@ PRODUCT_PACKAGES += \
     DSPManager \
     e2fsck \
     Email \
-    GoogleGallery-mako \
+    GalleryGoogleMako \
     htop \
     LatinIME \
     libcyanogen-dsp \
