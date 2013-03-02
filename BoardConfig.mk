@@ -96,14 +96,6 @@ BOARD_HAVE_LOW_LATENCY_AUDIO := true
 
 -include vendor/lge/mako/BoardConfigVendor.mk
 
-KRAIT_OPTIMIZATION := true
-TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
-TARGET_USE_KRAIT_PLD_SET := true
-TARGET_KRAIT_BIONIC_PLDOFFS := 10
-TARGET_KRAIT_BIONIC_PLDTHRESH := 10
-TARGET_KRAIT_BIONIC_BBTHRESH := 64
-TARGET_KRAIT_BIONIC_PLDSIZE := 64
-
 KERNEL_HAS_GETTIMEOFDAY_HELPER := true
 
 ifneq ($(USE_MORE_OPT_FLAGS),yes)
@@ -133,13 +125,24 @@ TARGET_EXTRA_CPPFLAGS :=	$(call-cpp-option,-fsanitize=address) \
 				$(call-cpp-option,-mtune=cortex-a9)
 endif
 
-# bionic 32 byte cache line to indicate to C
+KRAIT_OPTIMIZATION := true
+TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
+TARGET_USE_KRAIT_PLD_SET := true
+TARGET_KRAIT_BIONIC_PLDOFFS := 10
+TARGET_KRAIT_BIONIC_PLDTHRESH := 10
+TARGET_KRAIT_BIONIC_BBTHRESH := 64
+TARGET_KRAIT_BIONIC_PLDSIZE := 64
+
+# Bionic: 32 byte cache line to indicate to C
 ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
 
-# Allow unaligned access for NEON memory on ARMV7A
+# Bionic settings for QCOM devices
+IS_ARMV7A_QCOM := true
+
+# Bionic: Allow unaligned access for NEON memory on ARMV7A
 ARCH_ARM_NEON_SUPPORTS_UNALIGNED_ACCESS := true
 
-# Alignment divider size for NEON unaligned access in memcpy. 
+# Bionic: Alignment divider size for NEON unaligned access in memcpy. 
 BIONIC_MEMCPY_ALIGNMENT_DIVIDER := 224
 
 # Preload bootanimation zip into memory
@@ -147,9 +150,6 @@ TARGET_BOOTANIMATION_PRELOAD := true
 
 # Bootanimation texture cache
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-
-# Bionic settings for QCOM devices
-IS_ARMV7A_QCOM := true
 
 # Disable c++11 mode
 DEBUG_NO_STDCXX11 := yes
