@@ -40,7 +40,6 @@ PRODUCT_PACKAGES += \
     scp \
     sftp \
     SoundRecorder \
-    SpareParts \
     ssh \
     sshd \
     sshd_config \
