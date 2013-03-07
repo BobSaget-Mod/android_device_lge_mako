@@ -89,5 +89,6 @@ PRODUCT_COPY_FILES += \
 # Kernel modules
 ifeq ($(USING_BUILD_SCRIPTS),true)
 PRODUCT_COPY_FILES += \
-    device/lge/mako/system/lib/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko
+    device/lge/mako/system/lib/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko \
+    device/lge/mako/system/lib/modules/cifs.ko:system/lib/modules/cifs.ko
 endif
