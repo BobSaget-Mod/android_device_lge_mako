@@ -92,3 +92,7 @@ PRODUCT_COPY_FILES += \
     device/lge/mako/system/lib/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko \
     device/lge/mako/system/lib/modules/cifs.ko:system/lib/modules/cifs.ko
 endif
+
+# Busybox sync script
+PRODUCT_COPY_FILES += \
+    device/lge/mako/system/etc/init.d/99complete:system/etc/init.d/99complete
