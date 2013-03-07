@@ -65,7 +65,7 @@ PRODUCT_COPY_FILES += \
 
 # Extra init file
 PRODUCT_COPY_FILES += \
-    device/lge/mako/system/etc/init.local.rc:root/init.pb.rc
+    device/lge/mako/system/etc/init.local.rc:root/init.sm.rc
 
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
