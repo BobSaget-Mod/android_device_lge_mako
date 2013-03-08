@@ -99,59 +99,7 @@ BOARD_HAVE_LOW_LATENCY_AUDIO := true
 KERNEL_HAS_GETTIMEOFDAY_HELPER := true
 
 # Extra CFLAGS
-TARGET_EXTRA_CFLAGS :=	$(call-cc-option,-fsanitize=address) \
-			$(call-cc-option,-fsanitize=thread) \
-			$(call-cc-option,-march=armv7-a) \
-			$(call-cc-option,-mfpu=neon) \
-			$(call-cc-option,-mtune=cortex-a9)
-
-# Extra CPPFLAGS
-TARGET_EXTRA_CPPFLAGS :=	$(call-cpp-option,-fsanitize=address) \
-				$(call-cpp-option,-fsanitize=thread) \
-				$(call-cpp-option,-march=armv7-a) \
-				$(call-cpp-option,-mfpu=neon) \
-				$(call-cpp-option,-mtune=cortex-a9)
-
-ifneq ($(USE_MORE_OPT_FLAGS),yes)
-# Extra CFLAGS
-TARGET_EXTRA_CFLAGS +=  $(call-cc-option,-fgcse-after-reload) \
-			$(call-cc-option,-fipa-cp-clone) \
-			$(call-cc-option,-fpredictive-commoning) \
-			$(call-cc-option,-fsched-spec-load) \
-			$(call-cc-option,-funswitch-loops) \
-			$(call-cc-option,-fvect-cost-model)
-
-# Extra CPPFLAGS
-TARGET_EXTRA_CPPFLAGS +=	$(call-cpp-option,-fgcse-after-reload) \
-				$(call-cpp-option,-fipa-cp-clone) \
-				$(call-cpp-option,-fpredictive-commoning) \
-				$(call-cpp-option,-fsched-spec-load) \
-				$(call-cpp-option,-funswitch-loops) \
-				$(call-cpp-option,-fvect-cost-model)
-endif
-
-ifeq ($(ENABLE_GRAPHITE),true)
-# Graphite
-TARGET_EXTRA_CFLAGS +=	$(call-cc-option,-fgraphite) \
-			$(call-cc-option,-fgraphite-identity) \
-			$(call-cc-option,-floop-block) \
-			$(call-cc-option,-floop-flatten) \
-			$(call-cc-option,-floop-interchange) \
-			$(call-cc-option,-floop-strip-mine) \
-			$(call-cc-option,-floop-parallelize-all) \
-			$(call-cc-option,-ftree-loop-distribution) \
-			$(call-cc-option,-ftree-loop-linear)
-
-TARGET_EXTRA_CPPFLAGS +=	$(call-cpp-option,-fgraphite) \
-				$(call-cpp-option,-fgraphite-identity) \
-				$(call-cpp-option,-floop-block) \
-				$(call-cpp-option,-floop-flatten) \
-				$(call-cpp-option,-floop-interchange) \
-				$(call-cpp-option,-floop-strip-mine) \
-				$(call-cpp-option,-floop-parallelize-all) \
-				$(call-cpp-option,-ftree-loop-distribution) \
-				$(call-cpp-option,-ftree-loop-linear)
-endif
+TARGET_EXTRA_CFLAGS :=	$(call-cc-option,-mfpu=neon) $(call-cc-option,-mfloat-abi=softfp) $(call-cc-option,-march=armv7-a) $(call-cc-option-mtune=cortex-a9)
 
 KRAIT_OPTIMIZATION := true
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
