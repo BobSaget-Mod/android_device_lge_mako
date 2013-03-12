@@ -15,7 +15,6 @@
 #
 # Extra packages
 PRODUCT_PACKAGES += \
-    Apollo \
     bash \
     Basic \
     Camera \
@@ -27,6 +26,7 @@ PRODUCT_PACKAGES += \
     DSPManager \
     e2fsck \
     Email \
+    GalleryGoogleMako \
     htop \
     LatinIME \
     libcyanogen-dsp \
@@ -40,7 +40,6 @@ PRODUCT_PACKAGES += \
     scp \
     sftp \
     SoundRecorder \
-    SpareParts \
     ssh \
     sshd \
     sshd_config \
@@ -57,7 +56,6 @@ PRODUCT_PACKAGES += \
     vim \
     Wallpaperz-xhdpi
 
-$(call inherit-product, vendor/goog/goog-vendor.mk)
 $(call inherit-product, vendor/goomanager/goomanager-vendor.mk)
 $(call inherit-product, vendor/RM/rm-vendor.mk)
 
@@ -67,7 +65,7 @@ PRODUCT_COPY_FILES += \
 
 # Extra init file
 PRODUCT_COPY_FILES += \
-    device/lge/mako/system/etc/init.local.rc:root/init.pb.rc
+    device/lge/mako/system/etc/init.local.rc:root/init.sm.rc
 
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
@@ -86,4 +84,15 @@ $(call inherit-product, frameworks/base/data/videos/VideoPackage2.mk)
 
 # Boot animation
 PRODUCT_COPY_FILES += \
-    device/asus/grouper/system/media/bootanimation.zip:system/media/bootanimation.zip \
+    device/lge/mako/system/media/bootanimation.zip:system/media/bootanimation.zip
+
+# Kernel modules
+ifeq ($(USING_BUILD_SCRIPTS),true)
+PRODUCT_COPY_FILES += \
+    device/lge/mako/system/lib/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko \
+    device/lge/mako/system/lib/modules/cifs.ko:system/lib/modules/cifs.ko
+endif
+
+# Busybox sync script
+PRODUCT_COPY_FILES += \
+    device/lge/mako/system/etc/init.d/99complete:system/etc/init.d/99complete

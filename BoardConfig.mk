@@ -65,7 +65,7 @@ USE_OPENGL_RENDERER := true
 TARGET_USES_ION := true
 TARGET_USES_OVERLAY := true
 TARGET_USES_SF_BYPASS := true
-TARGET_USES_C2D_COMPOSITON := true
+TARGET_USES_C2D_COMPOSITION := true
 
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_UI_LIB := librecovery_ui_mako
@@ -92,7 +92,14 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/lge/mako
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
+BOARD_HAVE_LOW_LATENCY_AUDIO := true
+
 -include vendor/lge/mako/BoardConfigVendor.mk
+
+KERNEL_HAS_GETTIMEOFDAY_HELPER := true
+
+# Extra CFLAGS
+TARGET_EXTRA_CFLAGS :=	$(call-cc-option,-mfpu=neon) $(call-cc-option,-mfloat-abi=softfp) $(call-cc-option,-march=armv7-a) $(call-cc-option-mtune=cortex-a9)
 
 KRAIT_OPTIMIZATION := true
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
@@ -102,35 +109,16 @@ TARGET_KRAIT_BIONIC_PLDTHRESH := 10
 TARGET_KRAIT_BIONIC_BBTHRESH := 64
 TARGET_KRAIT_BIONIC_PLDSIZE := 64
 
-KERNEL_HAS_GETTIMEOFDAY_HELPER := true
-
-ifneq ($(USE_MORE_OPT_FLAGS),yes)
-# Extra CFLAGS
-TARGET_EXTRA_CFLAGS :=	$(call-cc-option,-fsanitize=address) \
-			$(call-cc-option,-fsanitize=thread) \
-			$(call-cc-option,-march=armv7-a) \
-			$(call-cc-option,-mcpu=cortex-a9) \
-			$(call-cc-option,-mtune=cortex-a9) \
-			-fgcse-after-reload \
-			-finline-functions \
-			-fipa-cp-clone \
-			-fpredictive-commoning \
-			-fvect-cost-model
-# Extra CPPFLAGS
-TARGET_EXTRA_CPPFLAGS :=	$(call-cpp-option,-fsanitize=address) \
-				$(call-cpp-option,-fsanitize=thread) \
-				$(call-cc-option,-march=armv7-a) \
-				$(call-cpp-option,-mcpu=cortex-a9) \
-				$(call-cpp-option,-mtune=cortex-a9)
-endif
-
-# bionic 32 byte cache line to indicate to C
+# Bionic: 32 byte cache line to indicate to C
 ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
 
-# Allow unaligned access for NEON memory on ARMV7A
+# Bionic settings for QCOM devices
+IS_ARMV7A_QCOM := true
+
+# Bionic: Allow unaligned access for NEON memory on ARMV7A
 ARCH_ARM_NEON_SUPPORTS_UNALIGNED_ACCESS := true
 
-# Alignment divider size for NEON unaligned access in memcpy. 
+# Bionic: Alignment divider size for NEON unaligned access in memcpy. 
 BIONIC_MEMCPY_ALIGNMENT_DIVIDER := 224
 
 # Preload bootanimation zip into memory
@@ -144,3 +132,6 @@ IS_ARMV7A_QCOM := true
 
 # GCC 4.7 SaberMod Toolchain
 USE_SABERMOD_ANDROIDEABI_48 := true
+
+# Disable c++11 mode
+DEBUG_NO_STDCXX11 := yes
