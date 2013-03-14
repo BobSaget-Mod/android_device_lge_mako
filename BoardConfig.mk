@@ -129,3 +129,6 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 
 # Disable c++11 mode
 DEBUG_NO_STDCXX11 := yes
+
+# Embed superuser
+SUPERUSER_EMBEDDED := true
