@@ -44,9 +44,8 @@ PRODUCT_PACKAGES += \
     sshd \
     sshd_config \
     ssh-keygen \
-    su \
-    .su \
     Superuser \
+    su \
     Term \
     ThemeChooser \
     ThemeManager \
