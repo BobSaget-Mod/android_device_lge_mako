@@ -25,4 +25,7 @@
     <integer name="def_screen_brightness">87</integer>
     <!-- Default dock sounds enabled = 0 disabled = 0 -->
     <integer name="def_dock_sounds_enabled">1</integer>
+    <!-- Backup transport Service -->
+    <bool name="def_backup_enabled">true</bool>
+    <string name="def_backup_transport">com.google.android.backup/.BackupTransportService</string>
 </resources>
