@@ -95,3 +95,7 @@ endif
 # Busybox sync script
 PRODUCT_COPY_FILES += \
     device/lge/mako/system/etc/init.d/99complete:system/etc/init.d/99complete
+
+# SaberMod banner
+PRODUCT_COPY_FILES += \
+    device/lge/mako/system/etc/init.d/00banner:system/etc/init.d/00banner
