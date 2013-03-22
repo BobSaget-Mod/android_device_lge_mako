@@ -20,7 +20,6 @@ PRODUCT_PACKAGES += \
     Camera \
     CellBroadcastReceiver \
     CMFileManager \
-    CMFileManagerThemes \
     com.tmobile.themes \
     Development \
     DSPManager \
