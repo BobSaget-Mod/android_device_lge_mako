@@ -24,7 +24,6 @@ PRODUCT_PACKAGES += \
     Development \
     DSPManager \
     e2fsck \
-    Email \
     GalleryGoogleMako \
     htop \
     LatinIME \
