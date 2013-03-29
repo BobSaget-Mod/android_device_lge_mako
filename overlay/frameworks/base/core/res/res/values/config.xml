@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-** Copyright 2012, The Android Open Source Project
+** Copyright 2009, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -17,6 +17,8 @@
 */
 -->
 
+<!-- These resources are around just to allow their values to be customized
+     for different hardware and product builds.  Do not translate. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- If this is true, the screen will fade off. -->
@@ -258,4 +260,6 @@
     <!-- Flag indicating if the speed up audio on mt call code should be executed -->
     <bool name="config_speed_up_audio_on_mt_calls">true</bool>
 
+    <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
+    <bool name="config_cellBroadcastAppLinks">true</bool>
 </resources>
