@@ -29,6 +29,7 @@ PRODUCT_PACKAGES += \
     LatinIME \
     libcyanogen-dsp \
     libjackpal-androidterm4 \
+    LockClock \
     lsof \
     mke2fs \
     nano \
