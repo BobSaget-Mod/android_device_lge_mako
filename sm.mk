@@ -17,25 +17,19 @@
 PRODUCT_PACKAGES += \
     bash \
     Basic \
-    Camera \
     CellBroadcastReceiver \
     CMFileManager \
     com.tmobile.themes \
-    Development \
     DSPManager \
-    e2fsck \
     GalleryGoogleMako \
     htop \
     LatinIME \
     libcyanogen-dsp \
     libjackpal-androidterm4 \
     LockClock \
-    lsof \
-    mke2fs \
     nano \
     openvpn \
     powertop \
-    rsync \
     scp \
     sftp \
     SoundRecorder \
@@ -49,7 +43,6 @@ PRODUCT_PACKAGES += \
     ThemeChooser \
     ThemeManager \
     Torch \
-    tune2fs \
     VideoEditor \
     vim \
     WallpaperZ
