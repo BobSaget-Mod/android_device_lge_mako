@@ -95,6 +95,7 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_HAVE_LOW_LATENCY_AUDIO := true
 
 -include vendor/lge/mako/BoardConfigVendor.mk
+-include vendor/unknown/BoardConfigVendor.mk
 
 KERNEL_HAS_GETTIMEOFDAY_HELPER := true
 
