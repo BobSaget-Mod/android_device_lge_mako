@@ -109,15 +109,3 @@ TARGET_KRAIT_BIONIC_PLDSIZE := 64
 
 # Bionic settings for QCOM devices
 IS_ARMV7A_QCOM := true
-
-# Preload bootanimation zip into memory
-TARGET_BOOTANIMATION_PRELOAD := true
-
-# Bootanimation texture cache
-TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-
-# Disable c++11 mode
-DEBUG_NO_STDCXX11 := yes
-
-# Embed superuser
-SUPERUSER_EMBEDDED := true
