@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-TARGET_GLOBAL_CFLAGS += $(call-cc-option,-mfpu=neon) $(call-cc-option,-mfloat-abi=softfp)
-TARGET_GLOBAL_CPPFLAGS += $(call-cc-option,-mfpu=neon) $(call-cc-option,-mfloat-abi=softfp)
+TARGET_GLOBAL_CFLAGS += $(call cc-option,-mfpu=neon) $(call cc-option,-mfloat-abi=softfp)
+TARGET_GLOBAL_CPPFLAGS += $(call cpp-option,-mfpu=neon) $(call cpp-option,-mfloat-abi=softfp)
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
@@ -95,11 +95,9 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_HAVE_LOW_LATENCY_AUDIO := true
 
 -include vendor/lge/mako/BoardConfigVendor.mk
+-include vendor/unknown/BoardConfigVendor.mk
 
 KERNEL_HAS_GETTIMEOFDAY_HELPER := true
-
-# Extra CFLAGS
-TARGET_EXTRA_CFLAGS :=	$(call-cc-option,-mfpu=neon) $(call-cc-option,-mfloat-abi=softfp) $(call-cc-option,-march=armv7-a) $(call-cc-option-mtune=cortex-a9)
 
 KRAIT_OPTIMIZATION := true
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
@@ -109,32 +107,8 @@ TARGET_KRAIT_BIONIC_PLDTHRESH := 10
 TARGET_KRAIT_BIONIC_BBTHRESH := 64
 TARGET_KRAIT_BIONIC_PLDSIZE := 64
 
-# Bionic: 32 byte cache line to indicate to C
-ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
-
-# Bionic settings for QCOM devices
-IS_ARMV7A_QCOM := true
-
-# Bionic: Allow unaligned access for NEON memory on ARMV7A
-ARCH_ARM_NEON_SUPPORTS_UNALIGNED_ACCESS := true
-
-# Bionic: Alignment divider size for NEON unaligned access in memcpy. 
-BIONIC_MEMCPY_ALIGNMENT_DIVIDER := 224
-
-# Preload bootanimation zip into memory
-TARGET_BOOTANIMATION_PRELOAD := true
-
-# Bootanimation texture cache
-TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-
 # Bionic settings for QCOM devices
 IS_ARMV7A_QCOM := true
 
 # GCC 4.7 SaberMod Toolchain
 USE_SABERMOD_ANDROIDEABI_48 := true
-
-# Disable c++11 mode
-DEBUG_NO_STDCXX11 := yes
-
-# Embed superuser
-SUPERUSER_EMBEDDED := true
