@@ -18,7 +18,7 @@
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 
 # Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/lge/mako/device.mk)
@@ -27,7 +27,7 @@ $(call inherit-product, vendor/lge/mako/device-vendor.mk)
 PRODUCT_NAME := full_mako
 PRODUCT_DEVICE := mako
 PRODUCT_BRAND := Android
-PRODUCT_MODEL := Full JellyBean on Mako
+PRODUCT_MODEL := AOSP on Mako
 PRODUCT_MANUFACTURER := LGE
 
 # Don't restrict vendors
